@@ -1,3 +1,4 @@
+require "pry"
 
 def begins_with_r(tools_array)
   #Return true if every element of the tools array starts with an "r" and
@@ -77,7 +78,30 @@ def merge_data(keys, data)# = arrays of hashes,
   #combines two nested data structures into one
   #the key for an entire hash becomes a key within the hash, key = :first_name
 
+  output_array = []
 
+  (0..1).each do |n|
+
+    value = keys[n][:first_name]
+    output_array[n] = {}
+    output_array[n][:first_name] = value
+  end
+
+  (0..1).each do |n|
+    current_array_location = output_array[n]
+    if n == 0
+      data[0]["blake"].each_pair do | k, v |
+        current_array_location[k] = v
+      end
+    else
+      data[0]["ashley"].each_pair do | k, v |
+        current_array_location[k] = v
+      end
+    end
+
+  end
+
+  output_array
   #end of function
 end
 
