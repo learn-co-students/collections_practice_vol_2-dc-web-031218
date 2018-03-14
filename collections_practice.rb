@@ -137,6 +137,7 @@ def organize_schools(array)
       end
     end
   end
+  
   output_hash
   #end of function
 end
